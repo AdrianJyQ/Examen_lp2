@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+	
+	<div class="card bg-light">
+		<div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+		<div class="card-body">
+	
+		<form th:action="@{/views/empleado/save}" th:object="${empleado}" method="post">
+			<div class="form-group row">
+				
+			<input type="hidden" th:field="*{IdEmpleados}">
+			<label class="col-md-2" for="Apellidos">Apellidos:</label> 
+				<input type="text" th:field="*{Apellidos}" class="form-control form-control-sm col-md-6" id="Apellidos"
+					placeholder="Apellidos del empleado"> 
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('Apellidos')}"
+						th:errors="*{Apellidos}">
+					</small>
+				
+			</div>
+			
+			<label class="col-md-2" for="Nombres">Nombres:</label> 
+				<input type="text" th:field="*{Nombres}" class="form-control form-control-sm col-md-6" id="Nombres"
+					placeholder="Nombres del empleado"> 
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('nombres')}"
+						th:errors="*{nombres}">
+					</small>
+			<div class="form-group row">
+				
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-md-2" for="Edad">Edad:</label> 
+				<input type="text"  th:field="*{Edad}" class="form-control form-control-sm col-md-6" id="Edad"
+					placeholder="Edad del empleado"> 
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('Edad')}"
+						th:errors="*{Edad}">
+					</small>
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-md-2" for="Sexo">Sexo:</label> 
+				<input type="text" th:field="*{Sexo}" class="form-control form-control-sm col-md-6" id="Sexo"
+					placeholder="Sexo del empleado"> 
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('Sexo')}"
+						th:errors="*{Sexo}">
+					</small>
+			</div>		
+			
+			<div class="form-group row">
+				<label class="col-md-2" for="Salario">Salario:</label> 
+				<input type="text" th:field="*{Salario}" class="form-control form-control-sm col-md-6" id="Salario"
+					placeholder="Salario del empleado"> 
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('Salario')}"
+						th:errors="*{Salario}">
+					</small>
+			</div>			
+			
+			<div class="card-footer bg-dark">
+				<input type="submit" class="btn btn-primary btn-sm" value="Guardar">
+			</div>
+			
+		</form>
+		</div>
+	</div>
+
+	</div>
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
+</html>
